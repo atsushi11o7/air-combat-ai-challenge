@@ -1,4 +1,4 @@
-FROM nvidia/cuda:12.8.1-cudnn-devel-ubuntu24.04
+FROM nvidia/cuda:12.6.2-cudnn-devel-ubuntu24.04
 
 # ロケールを設定（UTF-8対応）
 ENV LANG=en_US.UTF-8
@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y \
 RUN python3 -m venv /opt/venv
 
 RUN /opt/venv/bin/pip install --upgrade pip && \
-    /opt/venv/bin/pip install torch==2.7.0+cu128 --index-url https://download.pytorch.org/whl/cu128 && \
+    /opt/venv/bin/pip install torch==2.7.1+cu126 --index-url https://download.pytorch.org/whl/cu126 && \
     /opt/venv/bin/pip install \
         numpy \
         pandas \
